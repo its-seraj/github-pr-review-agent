@@ -63,8 +63,8 @@ Progress (fetching, tool calls) goes to stderr and the review goes to stdout, so
 
 ```mermaid
 flowchart TD
-    A["CLI: pr-review &lt;pr-url&gt;<br/>cli.ts"] --> B["Parse URL, read env tokens<br/>github.ts"]
-    B --> C["Fetch PR metadata and changed files<br/>GitHub REST API"]
+    A["CLI: pr-review &lt;pr-url&gt;<br/>cli.ts"] --> B["Parse URL, read gtihub token from .env<br/>github.ts"]
+    B --> C["Fetch PR metadata and changed files"]
     C --> D["Filter and annotate diff<br/>diff.ts"]
     D --> E["Build prompt: PR info + numbered diff<br/>prompt.ts"]
     E --> F{{"Claude agent loop<br/>review.ts"}}
